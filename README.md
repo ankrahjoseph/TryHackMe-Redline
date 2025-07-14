@@ -44,13 +44,13 @@ Answer: **System Information**
 ## Standard Collector Analysis
 **Q.** Provide the Operating System detected for the workstation.
 
-![SCA Q1]()
+![SCA Q1](https://github.com/ankrahjoseph/TryHackMe-Redline/blob/main/Redline/SCA%20Q1.png)
 
 Answer: **Windows Server 2019 Standard 17763**
 
 **Q.** What is the suspicious scheduled task that got created on the computer?
 
-![SCA Q2]()
+![SCA Q2](https://github.com/ankrahjoseph/TryHackMe-Redline/blob/main/Redline/SCA%20Q2.png)
 
 It looked suspicious because it was created THM-REDLINE\Administrator user. </br>
 Answer: **MSOfficeUpdateFa.ke**
@@ -62,7 +62,7 @@ Answer: **THM-p3R5IStENCe-m3Chani$m**
 
 **Q.** There is a new System Event ID created by an intruder with the source name "THM-Redline-User" and the Type "ERROR". Find the Event ID #.
 
-![SCA Q3]()
+![SCA Q3](https://github.com/ankrahjoseph/TryHackMe-Redline/blob/main/Redline/SCA%20Q3.png)
 
 I went to the Event Logs section then searched for "THM-Redline-User" and selected source as the search tab.</br>
 Answer: **546**
@@ -74,7 +74,7 @@ Answer: **Someone cracked my password. Now I need to rename my puppy-++-**
 
 **Q.** It looks like the intruder downloaded a file containing the flag for Question 8. Provide the full URL of the website.
 
-![SCA Q4]()
+![SCA Q4](https://github.com/ankrahjoseph/TryHackMe-Redline/blob/main/Redline/SCA%20Q4.png)
 
 I went to the File Download History section and saw the flag.txt file </br>
 Answer: **https://wormhole.app/download-stream/gI9vQtChjyYAmZ8Ody0AuA**
@@ -86,7 +86,7 @@ Answer: **C:\Program Files (x86)\Windows Mail\SomeMailFolder\flag.txt**
 
 **Q.** Provide the message the intruder left for you in the file.
 
-![SCA Q4]()
+![SCA Q5](https://github.com/ankrahjoseph/TryHackMe-Redline/blob/main/Redline/SCA%20Q5.png)
 
 Use the file path to locate the file and opened it to find the message </br>
 Answer: **THM{600D-C@7cH-My-FR1EnD}**
