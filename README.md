@@ -116,4 +116,84 @@ Answer: **35400**
 This can be found in the 3rd to the last screenshot provided in the reading for this task.</br>
 Answer: **C:\Users\charles\Desktop\Keylogger-IOCSearch\IOCs\keylogger.ioc**
 
+## IOC Search Collector Analysis
 
+**Q.** Provide the path of the file that matched all the artifacts along with the filename.
+
+![ISCA Q1](https://github.com/ankrahjoseph/TryHackMe-Redline/blob/main/Redline/ISCA%20Q1.png)
+
+After creating the IOC and using it to generate the report, it tool about 15 minutes to complete.I got one hit.</br>
+Answer: **C:\Users\Administrator\AppData\Local\Temp\8eJv8w2id6IqN85dfC.exe**
+
+**Q.** Provide the path where the file is located without including the filename.
+
+Answer: **C:\Users\Administrator\AppData\Local\Temp**
+
+**Q.** Who is the owner of the file?
+
+Answer: **BUILTIN\Administrators**
+
+**Q.** Provide the subsystem for the file.
+
+Answer: **Windows_CUI**
+
+**Q.** Provide the Device Path where the file is located.
+
+Answer: **\Device\HarddiskVolume2**
+
+**Q.** Provide the hash (SHA-256) for the file.
+
+The IOC report provided us with the MD5 hash so I went to [virustotal](https://www.virustotal.com/gui/file/57492d33b7c0755bb411b22d2dfdfdf088cbbfcd010e30dd8d425d5fe66adff4/details) and searched for the md5 hash and found details about the file.
+
+![Virus Total](https://github.com/ankrahjoseph/TryHackMe-Redline/blob/main/Redline/VirusTotal.png)
+
+Answer: **57492d33b7c0755bb411b22d2dfdfdf088cbbfcd010e30dd8d425d5fe66adff4**
+
+**Q.** The attacker managed to masquerade the real filename. Can you find it having the hash in your arsenal? 
+
+The [virustotal](https://www.virustotal.com/gui/file/57492d33b7c0755bb411b22d2dfdfdf088cbbfcd010e30dd8d425d5fe66adff4/details) page provided the names for the file.</br>
+Answer: PsExec.exe
+
+## Endpoint Investigation
+**Q.** Can you identify the product name of the machine?
+
+![ED Q1](https://github.com/ankrahjoseph/TryHackMe-Redline/blob/main/Redline/ED%20Q1.png)
+
+Answer: **Windows 7 Home Basic**
+
+**Q.** Can you find the name of the note left on the Desktop for the "Charles"?
+
+![ED Q2](https://github.com/ankrahjoseph/TryHackMe-Redline/blob/main/Redline/ED%20Q2.png)
+
+I navigated to the **File System** Section and selected Desktop under the user Charles.</br>
+Answer: **_R_E_A_D___T_H_I_S___AJYG1O_.txt**
+
+**Q.** Find the Windows Defender service; what is the name of its service DLL? 
+
+![ED Q3](https://github.com/ankrahjoseph/TryHackMe-Redline/blob/main/Redline/ED%20Q3.png)
+
+I navigated to the **Windows Serviced** tab and searched for 'windows defender'</br>
+Answer: **MpSvc.dll**
+
+**Q.** The user manually downloaded a zip file from the web. Can you find the filename? 
+
+![ED Q4](https://github.com/ankrahjoseph/TryHackMe-Redline/blob/main/Redline/ED%20Q4.png)
+
+I navigated to the **File Downloaded History** section and searhed for '.zip'</br>
+Answer: **eb5489216d4361f9e3650e6a6332f7ee21b0bc9f3f3a4018c69733949be1d481.zip**
+
+**Q.** Provide the filename of the malicious executable that got dropped on the user's Desktop.
+
+Back on the **File System** section, I found the malicious executable.</br>
+Answer: **Endermanch@Cerber5.exe**
+
+**Q.** Provide the MD5 hash for the dropped malicious executable.
+
+Answer: **fe1bc60a95b2c2d77cd5d232296a7fa4**
+
+**Q.** What is the name of the ransomware? 
+
+![Virus Total2](https://github.com/ankrahjoseph/TryHackMe-Redline/blob/main/Redline/Virus%20Total%202.png)
+
+I searched the md5 hash of the file on [virustotal]() and found the name of the ransomware. </br>
+Answer: **Cerber**
